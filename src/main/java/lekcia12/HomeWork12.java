@@ -2,6 +2,7 @@ package lekcia12;
 
 import config.BaseClass;
 import data.User;
+import data.UserHomeWork;
 import net.bytebuddy.asm.Advice;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -15,14 +16,13 @@ public class HomeWork12 extends BaseClass {
     static String mainUrl = "https://demoqa.com/automation-practice-form";
 
     public static void main(String[] args) {
-
         BaseClass.createDriver();
         driver.get("https://demoqa.com/automation-practice-form");
         RegistrationForm();
         BaseClass.closeDriver();
     }
         private static void RegistrationForm() {
-            User user=new User();
+            UserHomeWork user= new UserHomeWork();
             By inputFirstNameLocator=By.id("firstName");
             By inputLastNameLocator=By.id("lastName");
             By inputEmailLocator=By.id("userEmail");
@@ -30,7 +30,7 @@ public class HomeWork12 extends BaseClass {
             By inputSubjectsLocator=By.id("subjectsInput");
 
             driver.findElement(inputFirstNameLocator).sendKeys(user.getFirstname());
-            driver.findElement(inputLastNameLocator).sendKeys(user.getLastname());
+            driver.findElement(inputLastNameLocator).sendKeys(user.getSecondname());
             driver.findElement(inputEmailLocator).sendKeys(user.getEmail());
             driver.findElement(inputTelephoneLocator).sendKeys(user.getTelephone());
             driver.findElement(inputSubjectsLocator).sendKeys(user.getSubjects());
